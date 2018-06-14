@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ProceduralMap" prefWidth="200.0" stylesheets="@../controller.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.viewControllers.ProceduralMapController">
+   <children>
+      <AnchorPane prefWidth="170.0" style="-fx-border-color: black;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <AnchorPane layoutX="12.0" layoutY="-9.0" prefHeight="24.0" prefWidth="108.0" style="-fx-background-color: #3e3e3e; -fx-border-color: #646464;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="-13.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="4.0" text="Procedural Map" textFill="#ebebeb" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="Open Sans Regular" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <VBox layoutX="4.0" layoutY="14.0" prefWidth="142.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="14.0">
+               <children>
+                  <Button id="button" fx:id="Generate" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="27.0" prefWidth="149.0" style="-fx-background-color: none; -fx-border-width: 1 1 1 1; -fx-border-color: #383838 #0b0b0b #0b0b0b #383838;" text="Auto Generate" textFill="#c8c8c8">
+                     <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <AnchorPane prefWidth="157.0" style="-fx-border-color: black;">
+                     <children>
+                        <Label layoutX="4.0" layoutY="-4.0" style="-fx-background-color: #444444;" text="Stats" textFill="#c8c8c8" AnchorPane.leftAnchor="3.0" AnchorPane.topAnchor="-15.0">
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
+                        </Label>
+                        <VBox layoutX="10.0" layoutY="14.0" prefWidth="126.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="10.0">
+                           <children>
+                              <Label fx:id="FPS" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="26.0" text="N/A" textFill="#c8c8c8" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Open Sans Light" size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="1.0" right="1.0" top="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+   <padding>
+      <Insets bottom="10.0" top="10.0" />
+   </padding>
+</AnchorPane>

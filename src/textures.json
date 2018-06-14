@@ -1,0 +1,26 @@
+[
+  {
+    "textureName": "grass.png",
+    "High": 5.0,
+    "Low": 0.3,
+    "ID": 0
+  },
+  {
+    "textureName": "water.png",
+    "High": 0.1,
+    "Low": -0.2,
+    "ID": 1
+  },
+  {
+    "textureName": "water2.png",
+    "High": -0.2,
+    "Low": -5.0,
+    "ID": 2
+  },
+  {
+    "textureName": "sand.png",
+    "High": 0.3,
+    "Low": 0.1,
+    "ID": 3
+  }
+]

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="1047.0" style="-fx-background-color: #444444;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+    <children>
+      <SplitPane fx:id="SplitWin" dividerPositions="0.19407894736842105" prefHeight="524.0" prefWidth="1047.0" style="-fx-background-color: #444444;" stylesheets="@controller.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <ScrollPane fx:id="MenuList" hmax="0.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="170.0" style="-fx-background-color: none;" stylesheets="@controller.css">
+               <content>
+                  <VBox fx:id="Menu" maxHeight="1.7976931348623157E308" maxWidth="170.0" minWidth="170.0" prefHeight="20.0" prefWidth="100.0" />
+               </content>
+            </ScrollPane>
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="482.0" minWidth="482.0" prefHeight="482.0" prefWidth="482.0" style="-fx-background-color: #383838;">
+               <children>
+                  <Canvas fx:id="canvas" height="480.0" layoutX="10.0" layoutY="10.0" width="800.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="5.0" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

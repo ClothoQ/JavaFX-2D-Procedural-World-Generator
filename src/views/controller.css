@@ -1,0 +1,76 @@
+#button:pressed{
+	-fx-border-color: #0b0b0b #383838 #383838 #0b0b0b !important;
+}
+
+.text-field .text{
+	-fx-text-fill: red !important;
+}
+
+.text-field{
+	-fx-text-fill: #dcdcdc !important;
+}
+
+.split-pane > .split-pane-divider {
+	-fx-padding: 0 0.0em 0 0.0em;
+	-fx-border-color:#323232;
+}
+
+.scroll-pane .viewport{
+	-fx-background-color: transparent;
+}
+
+#TextMessage  .scroll-pane .content{
+	-fx-background-color:none !important;
+	-fx-text-fill:#C0C1C3 !important;
+}
+
+#TextMessage  .scroll-pane .viewport{
+	-fx-background-color:none !important;
+	-fx-text-fill:#C0C1C3 !important;
+}
+
+.scroll-bar{
+	-fx-background-color: none;
+	-fx-padding:0px;
+	-fx-margin:0px;
+}
+
+.scroll-bar .corner{
+	-fx-background-color:none;
+	-fx-padding:0px;
+	-fx-margin:0px;
+}
+
+.scroll-bar .thumb{
+	-fx-background-color:none;
+	-fx-padding:0px;
+	-fx-margin:0px;
+}
+
+.scroll-bar .track{
+	-fx-background-color:none;
+	-fx-padding:0px;
+	-fx-margin:0px;
+}
+
+.scroll-bar .decrement-button{
+	-fx-background-color:none;
+	-fx-padding:0px;
+	-fx-margin:0px;
+}
+.scroll-bar .decrement-arrow{
+	-fx-background-color:none;
+	-fx-padding:0px;
+	-fx-margin:0px;
+}
+
+.scroll-bar .increment-button{
+	-fx-background-color:none;
+	-fx-padding:0px;
+	-fx-margin:0px;
+}
+.scroll-bar .increment-arrow{
+	-fx-background-color:none;
+	-fx-padding:0px;
+	-fx-margin:0px;
+}
