@@ -20,9 +20,14 @@
                         <Font name="Open Sans Regular" size="12.0" />
                      </font>
                   </Label>
+                  <Button fx:id="closeWidget" alignment="TOP_CENTER" contentDisplay="TOP" graphicTextGap="0.0" maxHeight="20.0" minHeight="20.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="25.0" style="-fx-background-color: none; -fx-border-color: none;" text="-" textFill="WHITE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+                     <font>
+                        <Font name="Open Sans Regular" size="12.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
-            <VBox layoutX="6.0" layoutY="16.0" prefWidth="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="14.0">
+            <VBox fx:id="widget" layoutX="6.0" layoutY="16.0" prefWidth="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="14.0">
                <padding>
                   <Insets bottom="10.0" />
                </padding>
@@ -113,6 +118,6 @@
       </AnchorPane>
    </children>
    <padding>
-      <Insets bottom="10.0" top="10.0" />
+      <Insets bottom="5.0" top="5.0" />
    </padding>
 </AnchorPane>

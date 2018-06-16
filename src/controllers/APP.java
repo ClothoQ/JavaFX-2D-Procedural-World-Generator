@@ -1,6 +1,9 @@
 package controllers;
 
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -29,6 +32,11 @@ public class APP extends Application {
         stage.setMinWidth(960);
         stage.setMinHeight(550);
         stage.show();
+    }
+
+    @Override
+    public void stop(){
+        System.exit(0);
     }
 
     public static void main(String[] args) {

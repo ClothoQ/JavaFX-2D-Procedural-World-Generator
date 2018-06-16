@@ -3,7 +3,9 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -18,32 +20,76 @@
                         <Font name="Open Sans Regular" size="12.0" />
                      </font>
                   </Label>
+                  <Button fx:id="closeWidget" alignment="TOP_CENTER" contentDisplay="TOP" graphicTextGap="0.0" layoutX="130.0" layoutY="-2.0" maxHeight="20.0" minHeight="20.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="25.0" style="-fx-background-color: none; -fx-border-color: none;" text="-" textFill="WHITE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+                     <font>
+                        <Font name="Open Sans Regular" size="12.0" />
+                     </font></Button>
                </children>
             </AnchorPane>
-            <VBox layoutX="4.0" layoutY="14.0" prefWidth="142.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="14.0">
+            <VBox fx:id="widget" layoutX="4.0" layoutY="14.0" maxHeight="1.7976931348623157E308" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="14.0">
                <children>
-                  <Button id="button" fx:id="Generate" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="27.0" prefWidth="149.0" style="-fx-background-color: none; -fx-border-width: 1 1 1 1; -fx-border-color: #383838 #0b0b0b #0b0b0b #383838;" text="Auto Generate" textFill="#c8c8c8">
-                     <padding>
-                        <Insets bottom="5.0" top="5.0" />
-                     </padding>
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
-                     </VBox.margin>
-                  </Button>
                   <AnchorPane prefWidth="157.0" style="-fx-border-color: black;">
                      <children>
-                        <Label layoutX="4.0" layoutY="-4.0" style="-fx-background-color: #444444;" text="Stats" textFill="#c8c8c8" AnchorPane.leftAnchor="3.0" AnchorPane.topAnchor="-15.0">
+                        <Label layoutX="4.0" layoutY="-4.0" style="-fx-background-color: #444444;" text="Custom" textFill="#c8c8c8" AnchorPane.leftAnchor="3.0" AnchorPane.topAnchor="-15.0">
                            <padding>
                               <Insets left="5.0" right="5.0" />
                            </padding>
                         </Label>
                         <VBox layoutX="10.0" layoutY="14.0" prefWidth="126.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="10.0">
                            <children>
-                              <Label fx:id="FPS" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="26.0" text="N/A" textFill="#c8c8c8" VBox.vgrow="ALWAYS">
+                              <HBox>
+                                 <children>
+                                    <TextField fx:id="Seed" focusTraversable="false" prefHeight="29.0" prefWidth="50.0" promptText="Seed" style="-fx-background-color: #565656; -fx-border-width: 1 1 1 1; -fx-border-color: #0b0b0b #383838 #383838 #0b0b0b; -fx-text-color: red;" HBox.hgrow="ALWAYS">
+                                       <font>
+                                          <Font name="Open Sans Regular" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="BlockSize" focusTraversable="false" prefHeight="29.0" prefWidth="50.0" promptText="Block Size" style="-fx-background-color: #565656; -fx-border-width: 1 1 1 1; -fx-border-color: #0b0b0b #383838 #383838 #0b0b0b; -fx-text-color: red;" HBox.hgrow="ALWAYS">
+                                       <font>
+                                          <Font name="Open Sans Regular" size="12.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <TextField fx:id="MapW" focusTraversable="false" prefHeight="29.0" prefWidth="50.0" promptText="MapW" style="-fx-background-color: #565656; -fx-border-width: 1 1 1 1; -fx-border-color: #0b0b0b #383838 #383838 #0b0b0b; -fx-text-color: red;" HBox.hgrow="ALWAYS">
+                                       <font>
+                                          <Font name="Open Sans Regular" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="MapH" focusTraversable="false" prefHeight="29.0" prefWidth="50.0" promptText="MapH" style="-fx-background-color: #565656; -fx-border-width: 1 1 1 1; -fx-border-color: #0b0b0b #383838 #383838 #0b0b0b; -fx-text-color: red;" HBox.hgrow="ALWAYS">
+                                       <font>
+                                          <Font name="Open Sans Regular" size="12.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <TextField fx:id="MapSizeXY" focusTraversable="false" prefHeight="29.0" prefWidth="50.0" promptText="Map Size X&amp;Y" style="-fx-background-color: #565656; -fx-border-width: 1 1 1 1; -fx-border-color: #0b0b0b #383838 #383838 #0b0b0b; -fx-text-color: red;">
                                  <font>
-                                    <Font name="Open Sans Light" size="13.0" />
+                                    <Font name="Open Sans Regular" size="12.0" />
                                  </font>
-                              </Label>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Button id="button" fx:id="GenerateCustom" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="27.0" prefWidth="149.0" style="-fx-background-color: none; -fx-border-width: 1 1 1 1; -fx-border-color: #383838 #0b0b0b #0b0b0b #383838;" text="Generate" textFill="#c8c8c8">
+                                 <padding>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Button>
                            </children>
                         </VBox>
                      </children>
@@ -51,9 +97,17 @@
                         <Insets bottom="5.0" left="1.0" right="1.0" top="5.0" />
                      </padding>
                      <VBox.margin>
-                        <Insets top="15.0" />
+                        <Insets top="10.0" />
                      </VBox.margin>
                   </AnchorPane>
+                  <Button id="button" fx:id="GenerateDefault" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="27.0" prefWidth="149.0" style="-fx-background-color: none; -fx-border-width: 1 1 1 1; -fx-border-color: #383838 #0b0b0b #0b0b0b #383838;" text="Generate (Default)" textFill="#c8c8c8">
+                     <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Button>
                </children>
                <padding>
                   <Insets bottom="10.0" />
@@ -63,6 +117,6 @@
       </AnchorPane>
    </children>
    <padding>
-      <Insets bottom="10.0" top="10.0" />
+      <Insets bottom="5.0" top="5.0" />
    </padding>
 </AnchorPane>

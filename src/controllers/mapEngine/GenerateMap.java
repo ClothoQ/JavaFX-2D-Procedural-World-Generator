@@ -41,24 +41,23 @@ public class GenerateMap{
     }
 
     int[][] perlinArrayToImageID(double[][] perlinArray, String MapCreation){
-        var imageID          = new int[perlinArray.length][perlinArray[0].length];
-        var startTime        = System.currentTimeMillis();
-        var MapCreationSplit = MapCreation.split(" ");
-        for(int x = 0; x !=perlinArray.length; x++ ){
-            for(int y = 0; y !=perlinArray[x].length; y++ ) {
-                for(int params = 0; params != MapCreationSplit.length / 3; params++){
-                    try {
-                        if (perlinArray[x][y] < Double.parseDouble(MapCreationSplit[1 + (params * 3)]) && perlinArray[x][y] > Double.parseDouble(MapCreationSplit[2 + (params * 3)]))
-                            imageID[x][y]     = Integer.parseInt(MapCreationSplit[(params * 3)]);
-                    }catch (Exception e){
-                        System.out.println(e.getMessage());
+            var imageID          = new int[perlinArray.length][perlinArray[0].length];
+            var startTime        = System.currentTimeMillis();
+            var MapCreationSplit = MapCreation.split(" ");
+            for(int x = 0; x !=perlinArray.length; x++ ){
+                for(int y = 0; y !=perlinArray[x].length; y++ ) {
+                    for(int params = 0; params != MapCreationSplit.length / 3; params++){
+                        try {
+                            if (perlinArray[x][y] < Double.parseDouble(MapCreationSplit[1 + (params * 3)]) && perlinArray[x][y] > Double.parseDouble(MapCreationSplit[2 + (params * 3)]))
+                                imageID[x][y]     = Integer.parseInt(MapCreationSplit[(params * 3)]);
+                        }catch (Exception e){
+                            System.out.println(e.getMessage());
+                        }
                     }
                 }
             }
-        }
-
-        System.out.println("perlinArrayToImageID[ " + (System.currentTimeMillis() - startTime) + "ms ] - Done");
-        return imageID;
+            System.out.println("perlinArrayToImageID[ " + (System.currentTimeMillis() - startTime) + "ms ] - Done");
+            return imageID;
     }
 
     public void printPerlinArray(double[][] perlinArray){

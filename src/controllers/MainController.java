@@ -36,14 +36,26 @@ public class MainController{
         }
     }
 
+    @FXML private void addStatsView(){
+        try {
+            AnchorPane panel = FXMLLoader.load(getClass().getResource("/views/UIComponents/Stats.fxml"));
+            Menu.getChildren().add(panel);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+    }
+
     @FXML public void initialize() {
         MenuList.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         MenuList.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
         engine = new Engine(canvas);
+        engine.autoGenerate();
+        engine.start();
 
         addProceduralMapView();
         addMaterialsView();
+        addStatsView();
     }
 
 }

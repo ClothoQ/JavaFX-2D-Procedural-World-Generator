@@ -19,7 +19,13 @@ public class Textures {
             e.printStackTrace();
         }
         assert bufferedReader != null;
-        return new Gson().fromJson(bufferedReader,  Texture[].class);
+        Texture[] tmp = new Gson().fromJson(bufferedReader,  Texture[].class);
+        try {
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return tmp;
     }
 
 

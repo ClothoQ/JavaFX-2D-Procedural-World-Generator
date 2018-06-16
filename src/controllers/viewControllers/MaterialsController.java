@@ -14,13 +14,16 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
-public class MaterialsController {
+public class MaterialsController extends Widget{
 
     @FXML private TextField LowT;
     @FXML private TextField HighT;
     @FXML private TextField ImageLoc;
-    @FXML private VBox TextureList;
-    @FXML private Button addTexture;
+    @FXML private VBox      TextureList;
+    @FXML private Button    addTexture;
+
+    @FXML private Button    closeWidget;
+    @FXML private VBox      widget;
 
     private void getTextureList(){
         var textureList  = new Textures().getTextureList();
@@ -54,6 +57,7 @@ public class MaterialsController {
 
     private void addTexture(){
         var texture = new Textures();
+
         addTexture.setOnAction((e) -> {
             texture.addTexture(ImageLoc.getText() + ".png", Double.parseDouble(LowT.getText()), Double.parseDouble(HighT.getText()));
 
@@ -89,6 +93,7 @@ public class MaterialsController {
     public void initialize() {
         getTextureList();
         addTexture();
+        minimizeWidget(closeWidget ,widget);
     }
 
 }

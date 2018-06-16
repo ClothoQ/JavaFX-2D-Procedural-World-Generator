@@ -1,5 +1,6 @@
 package controllers.mapEngine;
 
+
 import javafx.application.Platform;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -23,28 +24,53 @@ public class Engine{
     private int CameraX = 0,  CameraY = 0;
 
     private int RenderTime      = 0;
-    private int MapX = 24, MapY = 15;
-    private int FPS             = 0;
+    private int MapW = 24, MapH = 15;
+    private int MapSizeXY       = 100;
 
-    private int mapSeed = 0;
+    private long FPS            = 0;
+
+    private int mapSeed         = 0;
 
     public Engine(Canvas canvas){
         this.canvas = canvas;
         gc          = canvas.getGraphicsContext2D();
     }
 
-    public void autoInit(){
+    public void autoGenerate(){
         mapSeed     = new Random().nextInt(900000) + 1;
         render      = new GenerateMap();
 
-        canvas.setWidth(MapX * textureSize);
-        canvas.setHeight(MapY * textureSize);
+        setMapW(24);
+        setMapH(15);
+        setMapSizeXY(100);
+        setTextureSize(32);
+
+        canvas.setWidth(MapW * textureSize);
+        canvas.setHeight(MapH * textureSize);
 
         new Thread(() -> {
             loadTextures();
             map           = generateWorld(mapSeed, 0.01, 0.01);
-            update();
         }).start();
+        System.gc();
+    }
+
+
+
+    public void custom(){
+        render      = new GenerateMap();
+        canvas.setWidth(MapW  * textureSize);
+        canvas.setHeight(MapH * textureSize);
+
+        new Thread(() -> {
+            loadTextures();
+            map           = generateWorld(mapSeed, 0.01, 0.01);
+        }).start();
+        System.gc();
+    }
+
+    public void start(){
+        update();
     }
 
     private void loadTextures(){
@@ -68,7 +94,7 @@ public class Engine{
     }
 
     private int[][] generateWorld(int seed, double X, double Y){
-        return render.perlinArrayToImageID(render.perlinToArray(100,100 , seed, X,  Y), textureParams);
+        return render.perlinArrayToImageID(render.perlinToArray(MapSizeXY,MapSizeXY , seed, X,  Y), textureParams);
     }
 
     private void update(){
@@ -82,8 +108,14 @@ public class Engine{
                         Platform.runLater(this::renderWorld);
                     } catch (InterruptedException e1) {
                         e1.printStackTrace();
+                    }catch (NullPointerException e){
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e1) {
+                            e1.printStackTrace();
+                        }
                     }
-                    FPS = (1000 / (int) (System.currentTimeMillis() - startTime));
+                    FPS = (1000 / (System.currentTimeMillis() - startTime));
                 }
         }).start();
     }
@@ -99,8 +131,8 @@ public class Engine{
         if(CameraX  < 0) CameraX = 0;
         if(CameraY  < 0) CameraY = 0;
 
-        if(MapY + CameraY > map.length)    CameraY--;
-        if(MapX + CameraX > map[0].length) CameraX--;
+        if(MapH + CameraY > map.length)    CameraY--;
+        if(MapW + CameraX > map[0].length) CameraX--;
     }
 
     private void userControls(){
@@ -125,8 +157,8 @@ public class Engine{
         gc.clearRect(0,0 , canvas.getHeight(),canvas.getWidth());
         long startTime = System.currentTimeMillis();
         try{
-            for(int x = CameraX; x < MapX + CameraX; x++){
-                for(int y = CameraY; y < MapY + CameraY; y++){
+            for(int x = CameraX; x < MapW + CameraX; x++){
+                for(int y = CameraY; y < MapH + CameraY; y++){
                     if(textures.length == 0)
                         gc.drawImage( textureNotFound, textureSize * (x - CameraX), textureSize * (y - CameraY), textureSize, textureSize);
                     for(int a = 0; a < textures.length; a ++){
@@ -142,25 +174,20 @@ public class Engine{
         RenderTime = (int) (System.currentTimeMillis() - startTime);
     }
 
-    public int getFPS(){
-        return FPS;
-    }
-    public int getCameraX(){
-        return CameraX;
-    }
-    public int getCameraY(){
-        return CameraY;
-    }
-    public int getTextureSize(){
-        return textureSize;
-    }
-    public int getMapX(){return MapX; }
-    public int getMapY(){return MapY; }
+    public long getFPS(){ return FPS; }
+    public int getCameraX(){ return CameraX; }
+    public int getCameraY(){ return CameraY; }
+    public int getTextureSize(){ return textureSize; }
+    public int getMapW(){return MapW; }
+    public int getMapH(){return MapH; }
+    public int getMapSizeXY(){return MapSizeXY; }
+    public int getSeed(){return mapSeed; }
 
     public void setCameraX(int CameraX){this.CameraX = CameraX;}
     public void setCameraY(int CameraY){this.CameraY = CameraY;}
     public void setTextureSize(int textureSize){this.textureSize = textureSize;}
-    public void setMapX(int MapX){this.MapX = MapX;}
-    public void setMapY(int MapY){this.MapY = MapY;}
-
+    public void setMapW(int MapW){this.MapW = MapW;}
+    public void setMapH(int MapH){this.MapH = MapH;}
+    public void setMapSizeXY(int MapSizeXY){this.MapSizeXY = MapSizeXY; }
+    public void setSeed(int mapSeed){this.mapSeed = mapSeed;}
 }

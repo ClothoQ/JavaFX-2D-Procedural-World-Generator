@@ -1,33 +1,38 @@
 package controllers.viewControllers;
 
 import controllers.MainController;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 
-public class ProceduralMapController {
+public class ProceduralMapController extends Widget{
 
-    @FXML private Label  FPS;
-    @FXML private Button Generate;
+    @FXML private Button GenerateDefault;
+    @FXML private Button GenerateCustom;
 
-    private void displayFPS(){
-        new Thread(() -> {
-            for(;;){
-                try {
-                    Thread.sleep(100);
-                    Platform.runLater(() -> FPS.setText("FPS "+ MainController.engine.getFPS()));
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-    }
+    @FXML private Button closeWidget;
+    @FXML private VBox widget;
+
+    @FXML private TextField Seed;
+    @FXML private TextField BlockSize;
+    @FXML private TextField MapW;
+    @FXML private TextField MapH;
+    @FXML private TextField MapSizeXY;
 
     @FXML
     public void initialize() {
-        Generate.setOnAction(e ->  MainController.engine.autoInit());
-        displayFPS();
+        GenerateDefault.setOnAction(e -> MainController.engine.autoGenerate());
+        GenerateCustom.setOnAction(e -> {
+            MainController.engine.setMapW(isInt(MapW.getText()));
+            MainController.engine.setMapH(isInt(MapH.getText()));
+            MainController.engine.setMapSizeXY(isInt(MapSizeXY.getText()));
+            MainController.engine.setSeed(isInt(Seed.getText()));
+            MainController.engine.setTextureSize(isInt(BlockSize.getText()));
+            MainController.engine.custom();
+        });
+
+        minimizeWidget(closeWidget ,widget);
     }
 
 }
